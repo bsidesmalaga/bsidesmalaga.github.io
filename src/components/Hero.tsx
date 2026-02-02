@@ -55,7 +55,7 @@ const Hero: React.FC = () => {
         <p className="max-w-2xl mx-auto text-gray-400 mb-10 text-lg">
           Join the underground. Uncover the future of security.
           <br />
-          <span className="text-neon-green font-mono">system.status:</span> <span className="text-white">call_for_papers_closed</span>
+          <span className="text-neon-green font-mono">system.status:</span> <span className="text-white">agenda_published</span>
         </p>
 
         <div className="flex flex-col sm:flex-row gap-y-3 sm:gap-x-4 justify-center">

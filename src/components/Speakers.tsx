@@ -12,22 +12,54 @@ const Speakers: React.FC = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="group relative bg-black border border-gray-800 p-6 hover:border-neon-blue transition-all duration-300">
+          {[
+            {
+              id: 1,
+              name: "A. Rosa Castillo",
+              role: "Machine Learning Engineer Immunefi",
+              topic: "AI Agents for Vulnerability Detection in Smart Contracts",
+              image: "/assets/img/speaker_26c1.jpg"
+            },
+            {
+              id: 2,
+              name: "Undisclosed",
+              role: "S2Grupo",
+              topic: "Study of the MSS Offensive Ecosystem in China",
+              image: "/assets/img/unc.jpg"
+            },
+            {
+              id: 3,
+              name: "Toño Díaz",
+              role: "DFIR Principal Consultant UNIT42 Palo Alto Networks",
+              topic: "Smoke Sandstorm: The Dream Job That Opened the Door to an APT — A DFIR Case Study",
+              image: "/assets/img/speaker_26c3.jpg"
+            },
+            {
+              id: 4,
+              name: "Alejandro Barranco",
+              role: "Data Scientist OGA.ai",
+              topic: "Vulnerabilidades en el Sistema de Acceso al Metro de Sevilla",
+              image: "/assets/img/speaker_26c4.jpg"
+            }
+          ].map((speaker) => (
+            <div key={speaker.id} className="group relative bg-black border border-gray-800 p-6 hover:border-neon-blue transition-all duration-300">
               <div className="absolute top-0 right-0 p-2 opacity-0 group-hover:opacity-100 transition-opacity">
                 <svg className="w-6 h-6 text-neon-blue" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
               </div>
 
-              <div className="w-24 h-24 mx-auto bg-gray-800 rounded-full mb-6 overflow-hidden border-2 border-gray-700 group-hover:border-neon-blue">
-                <img src={`https://picsum.photos/100/100?random=${i}`} alt="TBA" className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all" />
+              <div
+                className="w-24 h-24 mx-auto bg-gray-800 rounded-full mb-6 overflow-hidden border-2 border-gray-700 group-hover:border-neon-blue speaker-image-container"
+                style={{ '--speaker-bg': `url(${speaker.image})` } as React.CSSProperties}
+              >
+                <img src={speaker.image} alt={speaker.name} className="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all relative z-0" />
               </div>
 
               <div className="text-center">
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-neon-blue">Classified Speaker</h3>
-                <p className="text-sm text-gray-500 mb-4 font-mono">Pending...</p>
+                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-neon-blue">{speaker.name}</h3>
+                <p className="text-sm text-gray-500 mb-4 font-mono">{speaker.role}</p>
                 <div className="h-px w-10 mx-auto bg-gray-800 mb-4 group-hover:bg-neon-blue transition-colors"></div>
                 <p className="text-gray-400 text-sm">
-                  Topic data encrypted. Decryption key scheduled for release in Q1 2026.
+                  {speaker.topic}
                 </p>
               </div>
             </div>
