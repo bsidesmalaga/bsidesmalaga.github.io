@@ -31,7 +31,7 @@ const Speakers: React.FC = () => {
               id: 3,
               name: "Toño Díaz",
               role: "DFIR Principal Consultant UNIT42 Palo Alto Networks",
-              topic: "Smoke Sandstorm: The Dream Job That Opened the Door to an APT — A DFIR Case Study",
+              topic: "Screening Serpents: The Dream Job That Opened the Door to an APT — A DFIR Case Study",
               image: "/assets/img/speaker_26c3.jpg"
             },
             {

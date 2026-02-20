@@ -20,7 +20,7 @@ const Agenda: React.FC = () => {
             { time: "16:55", event: "Welcome to Bsides Málaga 2026", type: "special" },
             { time: "17:00", event: "AI Agents for Vulnerability Detection in Smart Contracts", type: "talk" },
             { time: "17:35", event: "Study of the MSS Offensive Ecosystem in China", type: "talk" },
-            { time: "18:10", event: "Smoke Sandstorm: The Dream Job That Opened the Door to an APT — A DFIR Case Study", type: "talk" },
+            { time: "18:10", event: "Screening Serpents: The Dream Job That Opened the Door to an APT — A DFIR Case Study", type: "talk" },
             { time: "18:45", event: "Vulnerabilidades en el Sistema de Acceso al Metro de Sevilla", type: "talk" },
             { time: "19:30", event: "Networking", type: "other" },
             { time: "20:30", event: "Connection lost...", type: "other" },
