@@ -59,7 +59,7 @@ const Hero: React.FC = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-y-3 sm:gap-x-4 justify-center">
-          <a href="http://google.com" target="_blank" rel="noopener noreferrer" className="px-6 py-4 bg-transparent text-neon-green font-bold uppercase tracking-widest hover:text-neon-purple hover:border-neon-purple transition-all skew-x-[-10deg] border border-neon-green">
+          <a href="https://www.eventbrite.com/e/entradas-bsides-malaga-2026-1982491548589" target="_blank" rel="noopener noreferrer" className="px-6 py-4 bg-transparent text-neon-green font-bold uppercase tracking-widest hover:text-neon-purple hover:border-neon-purple transition-all skew-x-[-10deg] border border-neon-green">
             <span className="skew-x-[10deg] block">Get Tickets</span>
           </a>
         </div>
