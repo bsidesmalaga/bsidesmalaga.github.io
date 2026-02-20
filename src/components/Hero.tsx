@@ -55,13 +55,13 @@ const Hero: React.FC = () => {
         <p className="max-w-2xl mx-auto text-gray-400 mb-10 text-lg">
           Join the underground. Uncover the future of security.
           <br />
-          <span className="text-neon-green font-mono">system.status:</span> <span className="text-white">agenda_published</span>
+          <span className="text-neon-green font-mono">system.status:</span> <span className="text-white">tickets_open</span>
         </p>
 
         <div className="flex flex-col sm:flex-row gap-y-3 sm:gap-x-4 justify-center">
-          <button disabled className="px-6 py-4 bg-gray-800 text-gray-500 font-bold uppercase tracking-widest cursor-not-allowed skew-x-[-10deg] border border-gray-700">
-            <span className="skew-x-[10deg] block">Get Tickets (Coming Soon)</span>
-          </button>
+          <a href="https://www.eventbrite.com/e/entradas-bsides-malaga-2026-1982491548589" target="_blank" rel="noopener noreferrer" className="px-6 py-4 bg-transparent text-neon-green font-bold uppercase tracking-widest hover:text-neon-purple hover:border-neon-purple transition-all skew-x-[-10deg] border border-neon-green">
+            <span className="skew-x-[10deg] block">Get Tickets</span>
+          </a>
         </div>
       </div>
 
