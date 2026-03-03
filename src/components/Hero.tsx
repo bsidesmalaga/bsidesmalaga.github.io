@@ -1,7 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { SectionId } from '../types';
 
 const Hero: React.FC = () => {
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+
+  useEffect(() => {
+    const targetDate = new Date('2026-03-20T17:00:00+01:00').getTime();
+
+    const updateCountdown = () => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      if (distance > 0) {
+        setTimeLeft({
+          days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+          hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+          minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+          seconds: Math.floor((distance % (1000 * 60)) / 1000)
+        });
+      } else {
+        setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
+      }
+    };
+
+    updateCountdown();
+    const timer = setInterval(updateCountdown, 1000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section id={SectionId.HOME} className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Elements */}
@@ -55,13 +86,29 @@ const Hero: React.FC = () => {
         <p className="max-w-2xl mx-auto text-gray-400 mb-10 text-lg">
           Join the underground. Uncover the future of security.
           <br />
-          <span className="text-neon-green font-mono">system.status:</span> <span className="text-white">tickets_open</span>
+          <span className="text-neon-green font-mono">system.status:</span> <span className="text-white">tickets_waitlist</span>
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-y-3 sm:gap-x-4 justify-center">
-          <a href="https://www.eventbrite.com/e/entradas-bsides-malaga-2026-1982491548589" target="_blank" rel="noopener noreferrer" className="px-6 py-4 bg-transparent text-neon-green font-bold uppercase tracking-widest hover:text-neon-purple hover:border-neon-purple transition-all skew-x-[-10deg] border border-neon-green">
-            <span className="skew-x-[10deg] block">Get Tickets</span>
-          </a>
+        <div className="flex justify-center gap-4 text-neon-green font-mono text-2xl md:text-3xl mt-4">
+          <div className="flex flex-col items-center">
+            <span className="font-bold drop-shadow-[0_0_8px_rgba(0,255,0,0.5)]">{timeLeft.days.toString().padStart(2, '0')}</span>
+            <span className="text-xs text-gray-400 uppercase tracking-widest mt-1">Days</span>
+          </div>
+          <span className="font-bold animate-pulse drop-shadow-[0_0_8px_rgba(0,255,0,0.5)]">:</span>
+          <div className="flex flex-col items-center">
+            <span className="font-bold drop-shadow-[0_0_8px_rgba(0,255,0,0.5)]">{timeLeft.hours.toString().padStart(2, '0')}</span>
+            <span className="text-xs text-gray-400 uppercase tracking-widest mt-1">Hrs</span>
+          </div>
+          <span className="font-bold animate-pulse drop-shadow-[0_0_8px_rgba(0,255,0,0.5)]">:</span>
+          <div className="flex flex-col items-center">
+            <span className="font-bold drop-shadow-[0_0_8px_rgba(0,255,0,0.5)]">{timeLeft.minutes.toString().padStart(2, '0')}</span>
+            <span className="text-xs text-gray-400 uppercase tracking-widest mt-1">Min</span>
+          </div>
+          <span className="font-bold animate-pulse drop-shadow-[0_0_8px_rgba(0,255,0,0.5)]">:</span>
+          <div className="flex flex-col items-center">
+            <span className="font-bold drop-shadow-[0_0_8px_rgba(0,255,0,0.5)]">{timeLeft.seconds.toString().padStart(2, '0')}</span>
+            <span className="text-xs text-gray-400 uppercase tracking-widest mt-1">Sec</span>
+          </div>
         </div>
       </div>
 
